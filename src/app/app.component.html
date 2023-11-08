@@ -1,0 +1,14 @@
+<section>
+  <h2>Scan Barcode</h2>
+  <button (click)="startScanner()">Scan Code</button>
+  <barcode-scanner-livestream
+    #scanner
+    [type]="['code_128', 'code_39', 'ean_8']"
+    (valueChanges)="onValueChanges($event)"
+  >
+  </barcode-scanner-livestream>
+  <ng-container *ngIf="barcode">
+    <div>Serial Number: {{ barcode }}</div>
+    <div>{{ result | json }}</div>
+  </ng-container>
+</section>
